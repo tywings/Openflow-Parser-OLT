@@ -43,7 +43,7 @@ public class FeatureReply extends OFPacket{
 	        //NetworkInterface network = NetworkInterface.getByInetAddress(ip);
 
 	        //byte[] mac = network.getHardwareAddress();
-	        byte[] dpid = Data.DatapathId;	//以后改为从启动输入。2017年5月19日。
+	        byte[] dpid = Data.DatapathId;	//may need to change to input from the start interface 2017.5.19
 	        //System.out.println(Arrays.toString(mac));
 	        
 	        System.arraycopy(dpid, 0, datapathId, 2, 6);
