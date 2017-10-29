@@ -5,32 +5,32 @@ import org.apache.commons.net.telnet.TelnetClient;
 
 import data.Data;
 /**
- * åˆ©ç”¨apache net å¼€æºåŒ…ï¼Œä½¿ç”¨telnetæ–¹å¼è·å–AIXä¸»æœºä¿¡æ¯
+ * ÀûÓÃapache net ¿ªÔ´°ü£¬Ê¹ÓÃtelnet·½Ê½»ñÈ¡AIXÖ÷»úĞÅÏ¢
  * 
- * @author zhaoyl
- * @date 20008.7.21
+ * @author zhaoty
+ * @date 2017.7.21
  * @version 1.2
  */
 public class TelnetCreator {
-    // Telnetå¯¹è±¡
+    // Telnet¶ÔÏó
 	private static TelnetCreator telnetCreator = new TelnetCreator();
     private TelnetClient telnet = new TelnetClient("vt200");
     private InputStream in;
     private PrintStream out;
-    // æç¤ºç¬¦ã€‚å…·ä½“è¯·telnetåˆ°AIXä¸»æœºæŸ¥çœ‹
+    // ÌáÊ¾·û¡£¾ßÌåÇëtelnetµ½AIXÖ÷»ú²é¿´
     private char prompt = Data.TelnetPrompt;
-    // telnetç«¯å£
+    // telnet¶Ë¿Ú
     private String port;
-    // ç”¨æˆ·
+    // ÓÃ»§
     private String user;
-    // å¯†ç 
+    // ÃÜÂë
     private String password;
-    // IPåœ°å€
+    // IPµØÖ·
     private String ip;
     
     public void TelnetCreatorInit() {
         try {
-            // AIXä¸»æœºIP
+            // AIXÖ÷»úIP
             this.ip = Data.deviceIP;
             this.password = Data.password;
             this.user = Data.username;
@@ -38,12 +38,11 @@ public class TelnetCreator {
             telnet.connect(ip, Integer.parseInt(port));
             in = telnet.getInputStream();
             out = new PrintStream(telnet.getOutputStream());
-            // ç™»å½•
+            // µÇÂ¼
             System.out.println(readUntil("Username:"));
             write(user + "\n");
             System.out.println(readUntil("Password:"));
             write(password + "\n");
-            System.out.println("________________________________");
             System.out.println(readUntil(prompt + ""));
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,7 +54,7 @@ public class TelnetCreator {
     }
     
     /**
-     * è¯»å–åˆ†æç»“æœ
+     * ¶ÁÈ¡·ÖÎö½á¹û
      * 
      * @param pattern
      * @return
@@ -91,7 +90,7 @@ public class TelnetCreator {
         return null;
     }
     /**
-     * å†™
+     * Ğ´
      * 
      * @param value
      */
@@ -104,8 +103,8 @@ public class TelnetCreator {
         }
     }
     /**
-     * å‘ç›®æ ‡å‘é€å‘½ä»¤å­—ç¬¦ä¸²
-     * å¹¶è·å¾—è¿”å›å€¼
+     * ÏòÄ¿±ê·¢ËÍÃüÁî×Ö·û´®
+     * ²¢»ñµÃ·µ»ØÖµ
      * 
      * @param command
      * @return
@@ -121,7 +120,7 @@ public class TelnetCreator {
         return null;
     }
     /**
-     * å…³é—­è¿æ¥
+     * ¹Ø±ÕÁ¬½Ó
      * 
      */
     public void disconnect() {
@@ -134,12 +133,12 @@ public class TelnetCreator {
 //    public static void main(String[] args) {
 //        try {
 //            TelnetCreator telnet = new TelnetCreator();
-//            // é€šè¿‡aixçš„å‘½ä»¤â€œæŸ¥æ‰¾ä¸»æœºåç§°â€è·å–æ•°æ®
-//            // å‘½ä»¤æ˜¯ "hostname"
-//            // ä¸ç†Ÿæ‚‰å‘½ä»¤çš„å‚è€ƒ<<AIXç½‘ç»œç®¡ç†æ‰‹å†Œ>>
+//            // Í¨¹ıaixµÄÃüÁî¡°²éÕÒÖ÷»úÃû³Æ¡±»ñÈ¡Êı¾İ
+//            // ÃüÁîÊÇ "hostname"
+//            // ²»ÊìÏ¤ÃüÁîµÄ²Î¿¼<<AIXÍøÂç¹ÜÀíÊÖ²á>>
 //            //String result = telnet.sendCommand("conf t");
 //            //System.out.println(result);
-//            // æœ€åä¸€å®šè¦å…³é—­
+//            // ×îºóÒ»¶¨Òª¹Ø±Õ
 //            telnet.disconnect();
 //        } catch (Exception e) {
 //            e.printStackTrace();

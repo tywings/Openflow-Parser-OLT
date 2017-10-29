@@ -19,11 +19,9 @@ public class PacketOutRunnable implements Runnable{
 	
 	@Override
 	public void run() {
-		// TODO 自动生成的方法存根
 		try {
 			PacketOutMsgDealer();
 		} catch (IOException e) {
-			// TODO 自动生成的 catch 块
 			e.printStackTrace();
 		}
 	}
@@ -33,7 +31,6 @@ public class PacketOutRunnable implements Runnable{
 			try {
 				wait();
 			} catch (InterruptedException e) {
-				// TODO 自动生成的 catch 块
 				e.printStackTrace();
 			}
 		}

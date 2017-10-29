@@ -12,7 +12,6 @@ public class Hello extends OFPacket{
 	
 	public Hello(int xid) {
 		super(type, length, xid);
-		// TODO 自动生成的构造函数存根
 	}
 	
 }

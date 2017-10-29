@@ -1,12 +1,7 @@
 package packet;
 
 import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
 import java.net.UnknownHostException;
-import java.util.Arrays;
-import java.util.Enumeration;
-
 import data.Data;
 
 /*
@@ -40,7 +35,6 @@ public class FeatureReply extends OFPacket{
 	
 	public FeatureReply(int xid) {
 		super(type, length, xid);
-		// TODO è‡ªåŠ¨ç”Ÿæˆçš„æ„é€ å‡½æ•°å­˜æ ¹
 		
         try {
 			InetAddress ip = InetAddress.getLocalHost();
@@ -49,13 +43,12 @@ public class FeatureReply extends OFPacket{
 	        //NetworkInterface network = NetworkInterface.getByInetAddress(ip);
 
 	        //byte[] mac = network.getHardwareAddress();
-	        byte[] dpid = Data.DatapathId;	//ä»¥åæ”¹ä¸ºä»å¯åŠ¨è¾“å…¥ã€‚2017å¹´5æœˆ19æ—¥ã€‚
+	        byte[] dpid = Data.DatapathId;	//ÒÔºó¸ÄÎª´ÓÆô¶¯ÊäÈë¡£2017Äê5ÔÂ19ÈÕ¡£
 	        //System.out.println(Arrays.toString(mac));
 	        
 	        System.arraycopy(dpid, 0, datapathId, 2, 6);
 	        
 		} catch (UnknownHostException e) {
-			// TODO è‡ªåŠ¨ç”Ÿæˆçš„ catch å—
 			e.printStackTrace();
 		}
         nBuffers = Data.str2HexBytes("00000100");

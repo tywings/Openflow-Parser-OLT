@@ -27,7 +27,6 @@ public class MultipartReply extends OFPacket{
 	
 	public MultipartReply(int xid) {
 		super(type, length, xid);
-		// TODO 自动生成的构造函数存根
 		
 		subtype = Data.OFPMP_PORT_DESC;
 		portNo = Data.OFPP_LOCAL;

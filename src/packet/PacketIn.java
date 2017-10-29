@@ -1,8 +1,5 @@
 package packet;
 
-import java.util.Arrays;
-import java.util.Formatter;
-
 import data.Data;
 
 public class PacketIn extends OFPacket{

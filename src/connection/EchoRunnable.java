@@ -18,7 +18,6 @@ public class EchoRunnable implements Runnable{
 	}
 	@Override
 	public void run() {
-		// TODO 自动生成的方法存根
 		EchoMsgDealer();
 	}
 	
@@ -30,7 +29,6 @@ public class EchoRunnable implements Runnable{
 						this.wait();	
 					}
 				} catch (InterruptedException e) {
-					// TODO 自动生成的 catch 块
 					System.out.println("wait() exception occurs.");
 					e.printStackTrace();
 				}
@@ -41,15 +39,12 @@ public class EchoRunnable implements Runnable{
 					out.write(echoRequest.OFPacketBytes());
 					out.flush();
 					
-//					in.readFully(new byte[8]);
 				} catch (IOException e) {
-					// TODO 自动生成的 catch 块
 					e.printStackTrace();
 				}
 				try {
 					Thread.sleep(1000*3);
 				} catch (InterruptedException e) {
-					// TODO 自动生成的 catch 块
 					e.printStackTrace();
 				}
 			}
